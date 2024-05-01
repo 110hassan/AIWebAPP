@@ -1,0 +1,172 @@
+/*
+body{
+    min-height: 100vh;
+	background: linear-gradient(rgb(0, 0, 35),rgb(2, 68, 135));
+    font-family: 'Poppins', sans-serif;
+}
+*/
+
+/*Text Typing Animation for predict.html
+
+#text1, #text2, #text3 {
+    
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+}
+
+#text1 {
+    animation: typing 5s steps(100) 0s forwards;
+}
+
+#text2 {
+    animation: typing 5s steps(100) 0s forwards;
+}
+
+#text3 {
+    animation: typing 5s steps(100) 0s forwards;
+}
+
+@keyframes typing {
+    to { width: 100%; }
+}
+
+*/
+
+
+
+.loader h3{
+    color:  rgb(205, 232, 255);
+}
+
+.loader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: linear-gradient(rgb(0, 0, 35),rgb(2, 68, 135));
+    transition: opacity 0.75s, visibility 0.75s;
+}
+
+.loader-hidden{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader::after{
+    content: "";
+    width: 75px;
+    height: 75px;
+    border: 15px solid #dddddd;
+    border-top-color: rgb(0, 2, 60);
+    border-radius: 50%;
+    animation: loading 0.75s ease infinite;
+}
+
+@keyframes loading {
+
+    from{
+        transform: rotate(0turn);
+    }
+    to{
+        transform: rotate(1turn);
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px 0;
+    background-color: #007bff;
+    color: #fff;
+}
+
+.header #btn-print{
+    margin-left: 4rem;
+    cursor: pointer;
+}
+#btn-print:hover{
+    color: black;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 20px;
+}
+
+.info-section, .xray-image {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.info-section h2, .diagnosis-section h2, .signature h2 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.info-section p, .diagnosis-section p, .signature p {
+    margin: 5px 0;
+}
+
+.xray-image {
+    text-align: center;
+}
+
+.xray-image img {
+    max-width: 50%;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #666;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+    .container {
+        grid-template-columns: 1fr; /* Display as a single column on smaller screens */
+    }
+    
+    .xray-image img {
+        max-width: 100%; /* Ensure image fills the container on smaller screens */
+    }
+
+    .header h1{
+        font-size: 1.5rem;
+    }
+    
+    .header #btn-print {
+        margin-right: 1rem;
+        margin-left: 1.5rem; /* Adjust button margin for smaller screens */
+    }
+}

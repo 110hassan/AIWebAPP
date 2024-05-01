@@ -1,0 +1,78 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chest X-ray Image Analysis & Report Generation</title>
+    <link rel="shortcut icon" type="image/jpg" href="{{ url_for('static',filename='images/bg.jpg') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='preview.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+ </head>
+ <body>
+    <div class="container">
+        <div class="tab-status">
+          <span class="tab active">1</span>
+          <span class="tab">2</span>
+          <span class="tab">3</span>
+          <span class="tab">4</span>
+          <span class="tab">5</span>
+          <span class="tab">6</span>
+        </div>
+        <form class="form-group" name="imageUpload" action="{{url_for('predict')}}" method="post" enctype="multipart/form-data">
+          <div role="tab-list">
+            <div role="tabpanel" id="name" class="tabpanel">
+              <h3>Enter Patient's Name</h3>
+              <input id="nameInput" type="text" name="name" class="form-input" placeholder="ABC">
+            </div>
+            <div role="tabpanel" id="age" class="tabpanel hidden">
+              <h3>Enter Patient's Age</h3>
+              <input type="number" name="age" class="form-input" placeholder="31">
+            </div>
+
+            <div role="tabpanel" id="gender" class="tabpanel hidden">
+                <h3>Patient's Gender</h3>
+                <select class="form-input" name="gender">
+                    <option selected disabled value="">Choose...</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                  </select>
+            </div>
+
+            <div role="tabpanel" id="email" class="tabpanel hidden">
+              <h3>Patient's email</h3>
+              <input id="emailInput" type="email" name="email" class="form-input" placeholder="abc@gmail.com">
+              <div id="emailError" class="error-message" style="display: none;">Invalid email format. It should be as 'abc@gmail.com'.</div>
+            </div>
+            <div role="tabpanel" id="place" class="tabpanel hidden">
+                <h3>Where patient is from?</h3>
+                <input id="placeInput" type="text" name="place" class="form-input" placeholder="Karachi, Pakistan">
+            </div>
+
+            <div role="tabpanel" id="image" class="tabpanel hidden">
+              <div class="img-area" data-img="">
+                <i class='bx bxs-cloud-upload icon'></i>
+                <h3>Upload Image</h3>
+                <p> Allowed extensions:  <span>jpg/jpeg/png</span></p>
+              </div>
+              <button class="select-image" type="button">Select Image</button>
+                   <div class="text-center">
+                      <input class="form-input" type="file" id="file"  name='imageFile' accept="image/jpeg, image/jpg, image/png" hidden>
+                      <a href="/templates/predict.html" onclick="loading()"><button id="predict-btn" name="classifier" type="submit" style="display: none;">Generate<i class="material-icons" id="btn-i">bolt</i>></button></a>
+                   </div>
+            </div>
+          </div>
+            <div class="pagination">
+              <a class="btn hidden" id="prev">< Prev</a>
+              <a class="btn" id="next">Next ></a>
+            </div>
+          </form>
+      </div>
+      <div id="loader">
+      
+      </div>
+
+    <script src="{{url_for('static', filename='preview.js') }}"></script>
+ </body>
+ </html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+		<title>Reports Data </title> 
+    <link rel="shortcut icon" type="image/jpg" href="{{ url_for('static',filename='images/bg.jpg') }}"/>
+	</head> 
+	<style> 
+		table, th, td { 
+		border:1px solid black; 
+		} 
+		</style> 
+	<body> 
+		<table style="width:100%"> 
+			<tr> 
+			<th>Report Id</th> 
+			<th>Name</th> 
+			<th>Age</th> 
+			<th>Gender</th> 
+			<th>Email</th> 
+      <th>Place</th> 
+      <th>Date Of Study</th> 
+      <th>Time</th> 
+      <th>Diagnosis</th> 
+      <th>Interpretaions</th> 
+      <th>Recommendations</th> 
+			</tr> 
+			{%for report in data%} 
+			<tr> 
+				<td>{{report[0]}}</td> 
+				<td>{{report[1]}}</td> 
+				<td>{{report[2]}}</td> 
+				<td>{{report[3]}}</td> 
+				<td>{{report[4]}}</td>
+        <td>{{report[5]}}</td> 
+        <td>{{report[6]}}</td> 
+        <td>{{report[7]}}</td> 
+        <td>{{report[8]}}</td> 
+        <td>{{report[9]}}</td> 
+        <td>{{report[10]}}</td>  
+				</tr> 
+			{%endfor%} 
+		</table>		 
+	</body> 
+</html> 
