@@ -65,7 +65,7 @@ app.config['UPLOAD'] = upload_folder
 
 @app.route('/', methods=['GET'])
 def start():
-    return render_template('index2.html')
+    return render_template('index.html')
 
 @app.route('/', methods=['POST'])
 def predict():
